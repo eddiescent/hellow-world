@@ -89,4 +89,17 @@ elif enemy_victory > player_victory:
 else: 
     print('【最终结果：平局！】')
 
+乘法口诀表:
+for i in range(1,10):
+    for j in range(1,i+1):
+        print( '%d X %d = %d' % (j,i,i*j),end = '  ' )
+    print('  ')
+或:    
+for i in range (1,10):
+    for j in range(1,10):
+        print('%d X %d = %d' % (j,i,i*j),end = '  ')
+        if i==j:
+            print('')
+            break    
+    
 
