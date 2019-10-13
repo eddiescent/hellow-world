@@ -103,3 +103,88 @@ for i in range (1,10):
             break    
     
 
+def my_len(words):
+    counter = 0
+    for i in words:
+        counter = counter + 1
+    return counter
+
+a = '三根皮带，四斤大豆'
+print(my_len(a))
+
+def menu(appetizer, course):
+    print('一份开胃菜：' + appetizer)
+    print('一份主食：' + course)
+
+menu('话梅花生','牛肉拉面')
+
+def menu(appetizer, course, dessert = '绿豆沙'):
+    print('一份开胃菜：' + appetizer)
+    print('一份主食：' + course)
+    print('一份甜品：' + dessert)
+
+
+menu('话梅花生','牛肉拉面')
+menu('话梅花生','牛肉拉面','银耳羹')
+#银耳羹对应参数dessert
+
+
+
+rent = 3000
+
+def cost():
+    utilities = int(input('请输入本月的水电费用'))
+    food_cost = int(input('请输入本月的食材费用'))
+    variable_cost = utilities + food_cost
+    print('本月的变动成本是' + str(variable_cost))
+    return variable_cost
+
+def sum_cost():
+    sum = rent + cost()
+    print('本月的总成本是' + str(sum))
+
+sum_cost()
+
+#or method 2: global XXXXXX
+rent = 3000
+
+def cost():
+    global variable_cost
+    utilities = int(input('请输入本月的水电费用'))
+    food_cost = int(input('请输入本月的食材费用'))
+    variable_cost = utilities + food_cost
+    print('本月的变动成本是' + str(variable_cost))
+
+def sum_cost():
+    sum = rent + variable_cost
+    print('本月的总成本是' + str(sum))
+
+cost()
+sum_cost()
+
+
+
+#Hellow kitty lottery:
+import random
+import time
+
+# 用random函数在列表中随机抽奖，列表中只有3位候选者。
+
+luckylist = ['海绵宝宝','派大星','章鱼哥']
+# random模块中有个随机选取一个元素的方法：random.choice()。
+a = random.choice(luckylist)  # 从3个人中随机选取1个人。
+print('开奖倒计时',3)
+time.sleep(1)  # 调用time模块，控制打印内容出现的时间
+print('开奖倒计时',2)
+time.sleep(1)
+print('开奖倒计时',1)
+time.sleep(1)
+# 使用三引号打印hellokitty的头像
+image = '''
+ /\_)o<
+|      \\
+| O . O|
+ \_____/
+'''
+print(image)  # ……
+print('恭喜'+a+'中奖！')  # 使用print函数打印幸运者名单
