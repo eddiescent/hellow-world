@@ -314,3 +314,358 @@ for i in range(1, len(deposit)):
     else:
         times = deposit[i]/deposit[i-1]
         print('你的存款涨了%f倍'%times)    
+
+
+class Chinese:
+
+    def __init__(self, name, birth, region):
+        self.name = name   # self.name = '吴枫' 
+        self.birth = birth  # self.birth = '广东'
+        self.region = region  # self.region = '深圳'
+
+    def born(self):
+        print(self.name + '出生在' + self.birth)
+
+    def live(self):
+        print(self.name + '居住在' + self.region)    
+
+person = Chinese('吴枫','广东','深圳') # 传入初始化方法的参数
+person.born()
+person.live()
+
+class Chinese:
+    def land_area(self,area):
+        print('我们居住的地方，陆地面积是%d万平方公里左右。'% area)
+
+class Cantonese(Chinese):
+    # 直接对方法进行重写
+    def land_area(self,area):
+        print('我们居住的地方，陆地面积是%d万平方公里左右。'% int(area*0.0188))
+
+gonger = Chinese()
+yewen = Cantonese()
+gonger.land_area(960)
+yewen.land_area(960)
+
+class Chinese:
+
+    def land_area(self,area):
+        print('我们居住的地方，陆地面积是%d万平方公里左右。' % area)
+
+class Cantonese(Chinese):
+    # 为参数 area 设置默认值。
+    def land_area(self, area = 960, rate = 0.0188):
+        Chinese.land_area(self, area * rate)
+
+yewen = Cantonese()
+yewen.land_area()
+# 两个参数都有默认值，所以可以这么调用。
+
+
+class Book:
+    def __init__(self, name, author, comment, state = 0):
+        self.name = name
+        self.author = author
+        self.comment = comment
+        self.state = state
+
+    def show_info(self):
+        if self.state == 0:
+            status = '未借出'
+        else:
+            status = '已借出'
+        return '名称：《%s》 作者：%s 推荐语：%s\n状态：%s ' % (self.name, self.author, self.comment, status)
+
+book1 = Book('像自由一样美丽', '林达', '你要用光明来定义黑暗，用黑暗来定义光明')
+# 传入参数，创建实例
+print(book1.show_info())
+#调用实例方法show_info()，打印出返回值
+
+class BookManager
+
+    def menu(self):
+        print('欢迎使用流浪图书管理系统，每本沉默的好书都是一座流浪的岛屿，希望你有缘发现并着陆，为精神家园找到一片栖息地。\n')
+        while True:
+            print('1.查询所有书籍\n2.添加书籍\n3.借阅书籍\n4.归还书籍\n5.退出系统\n')
+            choice = int(input('请输入数字选择对应的功能：'))
+            if choice == 1:
+                self.show_all_book()
+                # 调用对象方法时self不能忘
+            elif choice == 2:
+                self.add_book()
+            elif choice == 3:
+                self.lend_book()
+            elif choice == 4:
+                self.return_book()
+            elif choice == 5:
+                print('感谢使用！愿你我成为爱书之人，在茫茫书海里相遇。')
+                break
+
+
+class Book:
+ 
+    def __init__(self, name, author, comment, state = 0):
+        self.name = name
+        self.author = author
+        self.comment = comment
+        self.state = state
+ 
+    def __str__(self):
+        status = '未借出'
+        if self.state == 1:
+            status = '已借出'
+        return '名称：《%s》 作者：%s 推荐语：%s\n状态：%s ' % (self.name, self.author, self.comment, status)
+ 
+class BookManager:
+
+    books = []
+    # 存储书籍的列表，每一个元素都是Book的实例对象
+    def __init__(self):
+        book1 = Book('惶然录','费尔南多·佩索阿','一个迷失方向且濒于崩溃的灵魂的自我启示，一首对默默无闻、失败、智慧、困难和沉默的赞美诗。')
+        book2 = Book('以箭为翅','简媜','调和空灵文风与禅宗境界，刻画人间之缘起缘灭。像一条柔韧的绳子，情这个字，不知勒痛多少人的心肉。')
+        book3 = Book('心是孤独的猎手','卡森·麦卡勒斯','我们渴望倾诉，却从未倾听。女孩、黑人、哑巴、醉鬼、鳏夫的孤独形态各异，却从未退场。',1)
+        self.books.append(book1)
+        self.books.append(book2)
+        self.books.append(book3)
+
+manager = BookManager()
+print(len(manager.books))
+# 打印列表长度
+for book in manager.books:
+    print(book)
+
+class BookManager:
+
+    books = []
+
+    def __init__(self):
+        book1 = Book('惶然录','费尔南多·佩索阿','一个迷失方向且濒于崩溃的灵魂的自我启示，一首对默默无闻、失败、智慧、困难和沉默的赞美诗。')
+        book2 = Book('以箭为翅','简媜','调和空灵文风与禅宗境界，刻画人间之缘起缘灭。像一条柔韧的绳子，情这个字，不知勒痛多少人的心肉。')
+        book3 = Book('心是孤独的猎手','卡森·麦卡勒斯','我们渴望倾诉，却从未倾听。女孩、黑人、哑巴、醉鬼、鳏夫的孤独形态各异，却从未退场。',1)
+        self.books.append(book1)
+        self.books.append(book2)
+        self.books.append(book3)
+
+    def menu(self):
+        print('欢迎使用流浪图书管理系统，每本沉默的好书都是一座流浪的岛屿，希望你有缘发现并着陆，为精神家园找到一片栖息地。\n')
+        while True:
+            print('1.查询所有书籍\n2.添加书籍\n3.借出书籍\n4.归还书籍\n5.退出系统\n')
+            choice = int(input('请输入数字选择对应的功能：'))
+            if choice == 1:
+                self.show_all_book()
+
+    def show_all_book(self):
+        for book in self.books:
+        # self是实例对象的替身
+            print(book)
+
+manager = BookManager()
+manager.menu()
+
+
+class Book:
+ 
+    def __init__(self, name, author, comment, state = 0):
+        self.name = name
+        self.author = author
+        self.comment = comment
+        self.state = state
+ 
+    def __str__(self):
+        status = '未借出'
+        if self.state == 1:
+            status = '已借出'
+        return '名称：《%s》 作者：%s 推荐语：%s\n状态：%s ' % (self.name, self.author, self.comment, status)
+ 
+class BookManager:
+
+    books = []
+
+    def __init__(self):
+        book1 = Book('惶然录','费尔南多·佩索阿','一个迷失方向且濒于崩溃的灵魂的自我启示，一首对默默无闻、失败、智慧、困难和沉默的赞美诗。')
+        book2 = Book('以箭为翅','简媜','调和空灵文风与禅宗境界，刻画人间之缘起缘灭。像一条柔韧的绳子，情这个字，不知勒痛多少人的心肉。')
+        book3 = Book('心是孤独的猎手','卡森·麦卡勒斯','我们渴望倾诉，却从未倾听。女孩、黑人、哑巴、醉鬼、鳏夫的孤独形态各异，却从未退场。',1)
+        self.books.append(book1)
+        self.books.append(book2)
+        self.books.append(book3)
+
+    def menu(self):
+        print('欢迎使用流浪图书管理系统，每本沉默的好书都是一座流浪的岛屿，希望你有缘发现并着陆，为精神家园找到一片栖息地。\n')
+        while True:
+            print('1.查询所有书籍\n2.添加书籍\n3.借出书籍\n4.归还书籍\n5.退出系统\n')
+            choice = int(input('请输入数字选择对应的功能：'))
+            if choice == 1:
+                self.show_all_book()
+                break
+
+    def show_all_book(self):
+        for book in self.books:
+            print(book)
+            print('')
+
+manager = BookManager()
+manager.menu()
+
+
+class Book:   
+
+    def __init__(self, name, author, comment, state = 0):
+        self.name = name
+        self.author = author
+        self.comment = comment
+        self.state = state
+
+class BookManager:
+
+    books = [] 
+
+    def add_book(self):
+        new_name = input('请输入书籍名称：')
+        new_author =  input('请输入作者名称：')
+        new_comment = input('请输入书籍推荐语：')
+        # 获取书籍相应信息，赋值给属性
+
+        new_book = Book(new_name, new_author, new_comment)
+        # 传入参数，创建Book类实例new_book 
+        self.books.append(new_book)
+        # 将new_book添加到列表books里
+        print('书籍录入成功！\n')
+
+manager = BookManager()
+manager.add_book()
+
+
+class BookManager:
+
+    books = []     
+    def __init__(self):
+        book1 = Book('惶然录','费尔南多·佩索阿','一个迷失方向且濒于崩溃的灵魂的自我启示，一首对默默无闻、失败、智慧、困难和沉默的赞美诗。')
+        book2 = Book('以箭为翅','简媜','调和空灵文风与禅宗境界，刻画人间之缘起缘灭。像一条柔韧的绳子，情这个字，不知勒痛多少人的心肉。')
+        book3 = Book('心是孤独的猎手','卡森·麦卡勒斯','我们渴望倾诉，却从未倾听。女孩、黑人、哑巴、醉鬼、鳏夫的孤独形态各异，却从未退场。',1)
+        self.books.append(book1)
+        self.books.append(book2)
+        self.books.append(book3)
+
+    def lend_book(self):
+        borrow_name = input('请输入你想借阅的书籍名称：')
+        for book in self.books:
+        # 遍历列表，此时books有三个元素，即book1,book2,book3三个实例
+            if book.name == borrow_name:
+                # 如果列表中有实例的属性name和输入的书籍名称相等
+                if book.state == 1:
+                # 借阅状态为'已借出'
+                    print('你来晚一步，这本书已经被借走了噢')
+                    break
+                    # 一旦有对象满足条件，则退出for循环
+                else:
+                # 借阅状态为'未借出'
+                    print('借阅成功！借了不看会变胖噢～')
+                    book.state = 1
+                    break
+            else:
+                continue
+          # 如果不满足book.name == borrow_name，则继续循环（这两行可以省略）  
+        else:
+            print('这本书暂时没有收录在系统里呢')
+
+class Book:
+ 
+    def __init__(self, name, author, comment, state = 0):
+        self.name = name
+        self.author = author
+        self.comment = comment
+        self.state = state
+ 
+    def __str__(self):
+        status = '未借出'
+        if self.state == 1:
+            status = '已借出'
+        return '名称：《%s》 作者：%s 推荐语：%s\n状态：%s ' % (self.name, self.author, self.comment, status)
+ 
+class BookManager:
+
+    books = []
+    def __init__(self):
+        book1 = Book('惶然录','费尔南多·佩索阿','一个迷失方向且濒于崩溃的灵魂的自我启示，一首对默默无闻、失败、智慧、困难和沉默的赞美诗。')
+        book2 = Book('以箭为翅','简媜','调和空灵文风与禅宗境界，刻画人间之缘起缘灭。像一条柔韧的绳子，情这个字，不知勒痛多少人的心肉。')
+        book3 = Book('心是孤独的猎手','卡森·麦卡勒斯','我们渴望倾诉，却从未倾听。女孩、黑人、哑巴、醉鬼、鳏夫的孤独形态各异，却从未退场。',1)
+        self.books.append(book1)
+        self.books.append(book2)
+        self.books.append(book3)
+ 
+    def menu(self):
+        print('欢迎使用流浪图书管理系统，每本沉默的好书都是一座流浪的岛屿，希望你有缘发现并着陆，为精神家园找到一片栖息地。\n')
+        while True:
+            print('1.查询所有书籍\n2.添加书籍\n3.借阅书籍\n4.归还书籍\n5.退出系统\n')
+            choice = int(input('请输入数字选择对应的功能：'))
+            if choice == 1:
+                self.show_all_book()
+            elif choice == 2:
+                self.add_book()
+            elif choice == 3:
+                self.lend_book()
+            elif choice == 4:
+                self.return_book()
+            elif choice == 5:
+                print('感谢使用！愿你我成为爱书之人，在茫茫书海里相遇。')
+                break
+ 
+    def show_all_book(self):
+        print('书籍信息如下：')
+        for book in self.books:
+            print(book)
+            print('')
+
+    def add_book(self):
+        new_name = input('请输入书籍名称：')
+        new_author =  input('请输入作者名称：')
+        new_comment = input('请输入书籍推荐语：')
+        new_book = Book(new_name, new_author, new_comment)
+        self.books.append(new_book)
+        print('书籍录入成功！\n')
+
+    def check_book(self,name):
+        for book in self.books:
+            if book.name == name:
+                 return book 
+        else:
+            return None
+
+    def lend_book(self):
+        name = input('请输入书籍的名称：')
+        res = self.check_book(name)
+
+        if res != None:
+            if res.state == 1:
+                print('你来晚了一步，这本书已经被借走了噢')
+            else:
+                print('借阅成功，借了不看会变胖噢～')
+                res.state = 1
+        else:
+            print('这本书暂时没有收录在系统里呢')
+    
+    def return_book(self):
+        name = input('请输入归还书籍的名称：')
+        res = self.check_book(name)
+        # 调用check_book方法，将返回值赋值给变量res
+        if res == None:
+        # 如果返回的是空值，即这本书的书名不在系统里
+            print('没有这本书噢，你恐怕输错了书名～')
+        else:
+        # 如果返回的是实例对象
+            if res.state == 0:
+             # 如果实例属性state等于0，即这本书的借阅状态为'未借出'
+                print('这本书没有被借走，在等待有缘人的垂青呢！')
+            else:
+             # 如果实例属性state等于1，即状态为'已借出'
+                print('归还成功！')
+                res.state = 0
+                # 归还后书籍借阅状态为0，重置为'未借出'
+ 
+manager = BookManager()
+manager.menu()
+
+
+
+
+
